@@ -7,7 +7,6 @@ import {
 	Query,
 	UsePipes,
 	ValidationPipe,
-	UseInterceptors,
 	CacheTTL,
 	HttpException,
 	HttpStatus,
@@ -16,12 +15,21 @@ import {
 import { BlogService } from './blog.service';
 import { CreateBlogDto } from './dtos/create-blog.dto';
 import Blog from 'src/database/entities/blog.entity';
-import { CacheInterceptor } from '@nestjs/cache-manager';
+import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Blog')
 @Controller('blog')
 export class BlogController {
 	constructor(private readonly blogService: BlogService) {}
 
+	@ApiOperation({
+		summary: 'Create new blog',
+		description: 'Creates a blog post',
+	})
+	@ApiResponse({
+		status: 201,
+		description: 'Returns the created blog post',
+	})
 	@Post()
 	@UsePipes(new ValidationPipe({ transform: true }))
 	async create(@Body() createBlogDto: CreateBlogDto) {
@@ -32,6 +40,14 @@ export class BlogController {
 		};
 	}
 
+	@ApiOperation({
+		summary: 'View all blog posts',
+		description: 'This API will return all blog posts',
+	})
+	@ApiResponse({
+		status: 200,
+		description: 'Returns the blog posts',
+	})
 	@CacheTTL(300)
 	@Get()
 	async findAllBlogs(
@@ -58,6 +74,15 @@ export class BlogController {
 		};
 	}
 
+	@ApiOperation({
+		summary: 'View a blog posts',
+		description:
+			'This API will return the requested blog post, id is the unique key',
+	})
+	@ApiResponse({
+		status: 200,
+		description: 'Returns the requested blog post',
+	})
 	@CacheTTL(300)
 	@Get(':id')
 	async findOne(@Param('id') id: string) {
