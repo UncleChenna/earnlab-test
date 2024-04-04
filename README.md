@@ -1,6 +1,4 @@
-# Project Title
-
-Earnlab test
+# Earnlab Test
 
 This project aims to develop a robust RESTful API service for managing blog posts using NestJS, TypeORM/Postgres, and Redis. The primary focus is on creating and reading blog posts, with the added functionality of Redis caching to enhance read performance.
 
@@ -12,8 +10,6 @@ This project aims to develop a robust RESTful API service for managing blog post
 - [Project Structure](#project-structure)
 - [API Documentation](#api-documentation)
 - [Running Tests](#running-tests)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
@@ -31,11 +27,11 @@ This project aims to develop a robust RESTful API service for managing blog post
 
 Before starting the installation process, ensure you have the following prerequisites installed:
 
-Node.js and npm: Make sure you have Node.js and npm (Node Package Manager) installed on your system. You can download and install Node.js from the official website: Node.js Downloads.
+Node.js and npm: Make sure you have Node.js and npm (Node Package Manager) installed on your system. You can download and install Node.js from the official website
 
-PostgreSQL: Install PostgreSQL database server on your machine. You can download and install PostgreSQL from the official website: PostgreSQL Downloads.
+PostgreSQL: Install PostgreSQL database server on your machine. You can download and install PostgreSQL from the official website
 
-Redis: Install Redis server on your machine. You can download and install Redis from the official website: Redis Downloads.
+Redis: Install Redis server on your machine. You can download and install Redis from the official website
 
 Installation Steps
 Follow these steps to install and set up the Blog Management RESTful API:
